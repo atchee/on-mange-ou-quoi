@@ -1,0 +1,2 @@
+class Ustensil < ApplicationRecord
+end
