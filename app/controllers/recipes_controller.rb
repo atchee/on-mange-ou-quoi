@@ -8,5 +8,4 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     authorize @recipe
   end
-
 end
