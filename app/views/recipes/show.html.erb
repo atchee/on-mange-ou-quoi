@@ -1,0 +1,22 @@
+<h1><%= @recipe.title %></h1>
+
+<h2>Ingredients</h2>
+<ul>
+  <% @recipe.recipe_ingredients.each do |ingredient| %>
+    <li><%= ingredient.ingredient.name %> - <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></li>
+  <% end %>
+</ul>
+
+<h2>Ustensils</h2>
+<ul>
+  <% @recipe.recipe_ustensils.each do |ustensil| %>
+    <li><%= ustensil.ustensil.name %></li>
+  <% end %>
+</ul>
+
+<h2>Recipe steps</h2>
+<ol>
+  <% @recipe.recipe_steps.each do |step| %>
+    <li><%= step.description %></li>
+  <% end %>
+</ol>
