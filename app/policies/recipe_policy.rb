@@ -19,7 +19,7 @@ class RecipePolicy < ApplicationPolicy
   end
 
   def update?
-    false
+    true
   end
 
   def edit?
@@ -27,6 +27,6 @@ class RecipePolicy < ApplicationPolicy
   end
 
   def destroy?
-    false
+    true
   end
 end
