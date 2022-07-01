@@ -1,14 +1,16 @@
- <h2>Edit recipe:</h2>
-    <div>
-      <% if policy(@recipe).edit? %>
-        <%= simple_form_for @recipe do |f| %>
-        <%= f.input :title %>
-        <%= f.input :duration %>
-        <%= f.input :description %>
-        <%= f.association :category, collection: Category.all.order(:name), prompt: "Choose a category" %>
-        <%= f.association :level, collection: Level.all.order(:difficulty), prompt: "Choose a level of difficulty" %>
-        <%= f.input :serving %>
-        <%= f.submit %>
-        <% end %>
+<div class="container">
+  <h2>Edit recipe:</h2>
+  <div>
+    <% if policy(@recipe).edit? %>
+      <%= simple_form_for @recipe do |f| %>
+      <%= f.input :title %>
+      <%= f.input :duration %>
+      <%= f.input :description %>
+      <%= f.association :category, collection: Category.all.order(:name), prompt: "Choose a category" %>
+      <%= f.association :level, collection: Level.all.order(:difficulty), prompt: "Choose a level of difficulty" %>
+      <%= f.input :serving %>
+      <%= f.submit %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
+</div>
