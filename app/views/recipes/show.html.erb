@@ -20,3 +20,6 @@
     <li><%= step.description %></li>
   <% end %>
 </ol>
+
+<%= link_to "Edit this recipe", edit_recipe_path(@recipe)  %>
+<%= link_to "Delete this recipe", recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
