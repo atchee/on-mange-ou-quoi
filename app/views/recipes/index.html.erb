@@ -2,3 +2,7 @@
 <% @recipes.each do |recipe| %>
 <p><%= link_to recipe.title, recipe_path(recipe) %></p>
 <% end %>
+
+<%= link_to new_recipe_path do %>
+  <i class="fa-solid fa-plus"></i>
+<% end %>
