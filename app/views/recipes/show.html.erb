@@ -1,5 +1,11 @@
 <h1><%= @recipe.title %></h1>
 
+<h2>Details</h2>
+<ul>
+  <li><%= @recipe.serving %> servings</li>
+  <li><%= @recipe.level.difficulty %></li>
+</ul>
+
 <h2>Ingredients</h2>
 <ul>
   <% @recipe.recipe_ingredients.each do |ingredient| %>
@@ -20,3 +26,11 @@
     <li><%= step.description %></li>
   <% end %>
 </ol>
+
+<%= link_to edit_recipe_path(@recipe) do %>
+  <i class="fa-solid fa-pencil"></i>
+<% end %>
+
+<%= link_to recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+  <i class="fa-solid fa-trash"></i>
+<% end %>
