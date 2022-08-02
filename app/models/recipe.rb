@@ -7,4 +7,5 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
   has_many :measurements, through: :recipe_ingredients
   has_many :ustensils, through: :recipe_ustensils
+  has_one_attached :photo
 end

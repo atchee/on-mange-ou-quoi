@@ -5,6 +5,7 @@ ruby "3.0.3"
 
 # Cloudinary
 gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
 
 # User authentication log-in/log-out
 gem "devise"
