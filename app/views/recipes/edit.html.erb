@@ -9,6 +9,7 @@
       <%= f.association :category, collection: Category.all.order(:name), prompt: "Choose a category" %>
       <%= f.association :level, collection: Level.all.order(:difficulty), prompt: "Choose a level of difficulty" %>
       <%= f.input :serving %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit %>
       <% end %>
     <% end %>
