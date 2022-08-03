@@ -1,8 +1,33 @@
-<h1>hello</h1>
-<% @recipes.each do |recipe| %>
-<p><%= link_to recipe.title, recipe_path(recipe) %></p>
-<% end %>
+<div class="container">
+  <div class="cards">
+    <% @recipes.each do |recipe| %>
+      <div class="card">
+        <%= link_to recipe_path(recipe) do %>
+          <div class="card-img">
+            <% if recipe.photo.present? %>
+              <%= cl_image_tag recipe.photo.key %>
+            <% else %>
+              <img src="https://source.unsplash.com/random/350x253/?espace" alt="image card">
+            <% end %>
+          </div>
+          <div class="card-infos">
+            <div>
+              <p class="card-title"><%= recipe.title %></p>
+              <p class="card-description"><%= recipe.description %></p>
+            </div>
+            <div>
+              <p class="card-description"><i class="fa-solid fa-bowl-food"></i> <%= recipe.category.name %></p>
+              <p class="card-description"><i class="fa-solid fa-hourglass-half"></i> <%= recipe.duration %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
-<%= link_to new_recipe_path do %>
-  <i class="fa-solid fa-plus"></i>
-<% end %>
+    <div class="card">
+      <%= link_to new_recipe_path do %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
