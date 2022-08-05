@@ -39,3 +39,14 @@
   align-items: flex-end;
   position: relative;
 }
+
+.card-new-recipe {
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  i {
+    font-size: 70px;
+  }
+}
