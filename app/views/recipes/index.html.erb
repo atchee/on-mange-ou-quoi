@@ -1,33 +1,34 @@
-<div class="container">
-  <div class="cards">
-    <% @recipes.each do |recipe| %>
-      <div class="card">
-        <%= link_to recipe_path(recipe) do %>
-          <div class="card-img">
-            <% if recipe.photo.present? %>
-              <%= cl_image_tag recipe.photo.key %>
-            <% else %>
-              <img src="https://source.unsplash.com/random/350x253/?espace" alt="image card">
-            <% end %>
-          </div>
-          <div class="card-infos">
-            <div>
-              <p class="card-title"><%= recipe.title %></p>
-              <p class="card-description"><%= recipe.description %></p>
-            </div>
-            <div>
-              <p class="card-description"><i class="fa-solid fa-bowl-food"></i> <%= recipe.category.name %></p>
-              <p class="card-description"><i class="fa-solid fa-hourglass-half"></i> <%= recipe.duration %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
+<div class="cards">
+  <% @recipes.each do |recipe| %>
     <div class="card">
-      <%= link_to new_recipe_path do %>
-        <i class="fa-solid fa-plus"></i>
+      <%= link_to recipe_path(recipe) do %>
+        <div class="card-img">
+          <% if recipe.photo.present? %>
+            <%= cl_image_tag recipe.photo.key %>
+          <% else %>
+            <img src="https://source.unsplash.com/random/350x253/?espace" alt="image card">
+          <% end %>
+        </div>
+        <div class="card-infos">
+          <div>
+            <p class="card-title"><%= recipe.title %></p>
+            <p class="card-description"><%= recipe.description %></p>
+          </div>
+          <div>
+            <p class="card-description"><i class="fa-solid fa-bowl-food"></i> <%= recipe.category.name %></p>
+            <p class="card-description"><i class="fa-solid fa-hourglass-half"></i> <%= recipe.duration %></p>
+          </div>
+        </div>
       <% end %>
     </div>
+  <% end %>
+
+  <div class="card-new-recipe">
+    <%= link_to new_recipe_path do %>
+      <i class="fa-solid fa-plus"></i>
+      <div class="card-infos">
+      <p class="card-description">Add a new recipe</p>
+      </div>
+    <% end %>
   </div>
 </div>
