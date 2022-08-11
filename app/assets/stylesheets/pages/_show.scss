@@ -1,0 +1,29 @@
+.recipe {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+ul {
+  list-style-type: none;
+
+  .fa-clock {
+    color: #D23333;
+  }
+
+  .fa-chart-pie {
+    color: #058689;
+  }
+
+  .fa-face-smile-wink {
+    color: #058689;
+  }
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .recipe {
+    flex-direction: column;
+  }
+}
