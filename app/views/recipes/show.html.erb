@@ -1,10 +1,37 @@
-<h1><%= @recipe.title %></h1>
+<div class="recipe">
+  <div>
+    <% if @recipe.photo.present? %>
+      <%= cl_image_tag @recipe.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <img src="https://source.unsplash.com/random/350x253/?espace" alt="image card">
+    <% end %>
+  </div>
 
-<h2>Details</h2>
-<ul>
-  <li><%= @recipe.serving %> servings</li>
-  <li><%= @recipe.level.difficulty %></li>
-</ul>
+  <div>
+    <h1><%= @recipe.title %></h1>
+
+    <ul>
+      <li><i class="fa-solid fa-clock"></i></i> <%= @recipe.duration %></li>
+      <li><i class="fa-solid fa-chart-pie"></i> <%= @recipe.serving %> servings</li>
+      <li><i class="fa-solid fa-face-smile-wink"></i> <%= @recipe.level.difficulty %></li>
+    </ul>
+
+    <p><%= @recipe.description %></p>
+
+    <div>
+      <%= link_to edit_recipe_path(@recipe) do %>
+        <i class="fa-solid fa-pencil"></i>
+      <% end %>
+
+      <%= link_to recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+
 
 <h2>Ingredients</h2>
 <ul>
@@ -26,17 +53,3 @@
     <li><%= step.description %></li>
   <% end %>
 </ol>
-
-<%= link_to edit_recipe_path(@recipe) do %>
-  <i class="fa-solid fa-pencil"></i>
-<% end %>
-
-<%= link_to recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-  <i class="fa-solid fa-trash"></i>
-<% end %>
-
-<% if @recipe.photo.present? %>
-  <%= cl_image_tag @recipe.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <img src="https://source.unsplash.com/random/350x253/?espace" alt="image card">
-<% end %>
