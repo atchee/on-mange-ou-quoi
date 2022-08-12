@@ -1,5 +1,5 @@
 <div class="recipe">
-  <div>
+  <div class="photos">
     <% if @recipe.photo.present? %>
       <%= cl_image_tag @recipe.photo.key, height: 300, width: 400, crop: :fill %>
     <% else %>
@@ -7,7 +7,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="infos">
     <h1><%= @recipe.title %></h1>
 
     <ul>
@@ -32,24 +32,42 @@
 </div>
 
 
+<div class="ingredients">
+  <div class="ingredients-title">
+    <h2>Ingredients</h2>
+  </div>
+  <div class="ingredients-list">
+    <ul>
+    <% @recipe.recipe_ingredients.each do |ingredient| %>
+      <li><%= ingredient.ingredient.name %> - <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></li>
+    <% end %>
+  </ul>
+  </div>
+</div>
 
-<h2>Ingredients</h2>
-<ul>
-  <% @recipe.recipe_ingredients.each do |ingredient| %>
-    <li><%= ingredient.ingredient.name %> - <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></li>
-  <% end %>
-</ul>
+<div class="ustensils">
+  <div class="ustensils-list">
+    <ul>
+    <% @recipe.recipe_ustensils.each do |ustensil| %>
+      <li><%= ustensil.ustensil.name %></li>
+    <% end %>
+  </ul>
+  </div>
+  <div class="ustensils-title">
+    <h2>Ustensils</h2>
+  </div>
+</div>
 
-<h2>Ustensils</h2>
-<ul>
-  <% @recipe.recipe_ustensils.each do |ustensil| %>
-    <li><%= ustensil.ustensil.name %></li>
-  <% end %>
-</ul>
 
-<h2>Recipe steps</h2>
-<ol>
-  <% @recipe.recipe_steps.each do |step| %>
-    <li><%= step.description %></li>
-  <% end %>
-</ol>
+<div class="steps">
+  <div class="steps-title">
+    <h2>Recipe steps</h2>
+  </div>
+  <div class="steps-list">
+    <ol>
+    <% @recipe.recipe_steps.each do |step| %>
+      <li><%= step.description %></li>
+    <% end %>
+  </ol>
+  </div>
+</div>
