@@ -1,11 +1,20 @@
 .recipe {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 15px;
+  // flex-direction: row;
+  flex-wrap: wrap;
+  // justify-content: center;
+  // gap: 15px;
 }
 
-ul {
+.photos {
+  flex: 50%;
+}
+
+.infos {
+  flex: 50%;
+}
+
+.recipe ul {
   list-style-type: none;
 
   .fa-clock {
@@ -21,9 +30,47 @@ ul {
   }
 }
 
+.ingredients {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingredients-title {
+  flex: 40%;
+}
+
+.ingredients-list {
+  flex: 60%;
+}
+
+.ustensils {
+  background-color: bisque;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ustensils-title {
+  flex: 40%;
+}
+
+.ustensils-list {
+  flex: 60%;
+}
+
+.steps {
+  background-color: burlywood;
+}
+
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
-  .recipe {
-    flex-direction: column;
+
+  .photos,
+  .infos,
+  .ingredients-title,
+  .ingredients-list,
+  .ustensils-title,
+  .ustensils-list {
+    flex: 100%;
   }
 }
