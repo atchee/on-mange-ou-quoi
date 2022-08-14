@@ -33,10 +33,11 @@
 
 
 <div class="ingredients">
-  <div class="ingredients-title">
-    <h2>Ingredients</h2>
+  <div class="ingredients-photo">
+    <%= image_tag "https://res.cloudinary.com/dofre6u3x/image/upload/v1660492477/on_mange_ou_quoi/des-legumes_lhfadw.png", height: 200, width: 200, crop: :fill %>
   </div>
   <div class="ingredients-list">
+    <h2>Ingredients</h2>
     <ul>
     <% @recipe.recipe_ingredients.each do |ingredient| %>
       <li><%= ingredient.ingredient.name %> - <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></li>
@@ -47,14 +48,15 @@
 
 <div class="ustensils">
   <div class="ustensils-list">
+    <h2>Ustensils</h2>
     <ul>
     <% @recipe.recipe_ustensils.each do |ustensil| %>
       <li><%= ustensil.ustensil.name %></li>
     <% end %>
   </ul>
   </div>
-  <div class="ustensils-title">
-    <h2>Ustensils</h2>
+  <div class="ustensils-photo">
+    <%= image_tag "https://res.cloudinary.com/dofre6u3x/image/upload/v1660492481/on_mange_ou_quoi/ustensiles-de-cuisine_aibfy1.png", height: 200, width: 200, crop: :fill %>
   </div>
 </div>
 
