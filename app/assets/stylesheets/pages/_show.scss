@@ -36,7 +36,7 @@
   flex-wrap: wrap;
 }
 
-.ingredients-title {
+.ingredients-photo {
   flex: 40%;
 }
 
@@ -50,7 +50,7 @@
   flex-wrap: wrap;
 }
 
-.ustensils-title {
+.ustensils-photo {
   flex: 40%;
 }
 
@@ -61,6 +61,12 @@
 .steps {
   background-color: burlywood;
 }
+
+.steps-title {
+  text-align: center;
+}
+
+.steps-list {}
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
