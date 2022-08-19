@@ -1,3 +1,13 @@
+<div>
+  <%= link_to edit_recipe_path(@recipe) do %>
+    <i class="fa-solid fa-pencil"></i>
+  <% end %>
+
+  <%= link_to recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+</div>
+
 <div class="recipe">
   <div class="photos">
     <% if @recipe.photo.present? %>
@@ -17,17 +27,6 @@
     </ul>
 
     <p><%= @recipe.description %></p>
-
-    <div>
-      <%= link_to edit_recipe_path(@recipe) do %>
-        <i class="fa-solid fa-pencil"></i>
-      <% end %>
-
-      <%= link_to recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-        <i class="fa-solid fa-trash"></i>
-      <% end %>
-    </div>
-
   </div>
 </div>
 
@@ -40,7 +39,7 @@
     <h2>Ingredients</h2>
     <ul>
     <% @recipe.recipe_ingredients.each do |ingredient| %>
-      <li><%= ingredient.ingredient.name %> - <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></li>
+      <li><i class="fa-solid fa-square-check"></i> <%= ingredient.ingredient.name %> - <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></li>
     <% end %>
   </ul>
   </div>
@@ -51,7 +50,7 @@
     <h2>Ustensils</h2>
     <ul>
     <% @recipe.recipe_ustensils.each do |ustensil| %>
-      <li><%= ustensil.ustensil.name %></li>
+      <li><i class="fa-solid fa-circle-check"></i> <%= ustensil.ustensil.name %></li>
     <% end %>
   </ul>
   </div>

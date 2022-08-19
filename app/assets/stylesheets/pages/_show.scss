@@ -8,6 +8,8 @@
 
 .photos {
   flex: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .infos {
@@ -38,10 +40,20 @@
 
 .ingredients-photo {
   flex: 40%;
+  display: flex;
+  justify-content: center;
 }
 
 .ingredients-list {
   flex: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  ul {
+    list-style-type: none;
+  }
 }
 
 .ustensils {
@@ -52,10 +64,20 @@
 
 .ustensils-photo {
   flex: 40%;
+  display: flex;
+  justify-content: center;
 }
 
 .ustensils-list {
   flex: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  ul {
+    list-style-type: none;
+  }
 }
 
 .steps {
