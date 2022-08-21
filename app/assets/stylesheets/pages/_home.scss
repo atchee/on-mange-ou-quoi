@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+.banner {
+  background-image: linear-gradient(rgba(155, 155, 155, 0.243), rgba(154, 154, 156, 0.243)), url("https://res.cloudinary.com/dofre6u3x/image/upload/v1661101760/on_mange_ou_quoi/HP_Image_owtzom.gif");
+  height: 100%;
+  width: 100%;
+  object-position: 50% 50%;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h1 {
+    text-align: center;
+    padding-top: 10%;
+    font-size: 70px;
+    color: black;
+    text-shadow: 1px 1px 2px #1d2d476f;
+  }
+
+  .btn-list {
+    margin-top: 60px;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #142543;
+  text-shadow: 1px 1px 2px #1d2d476f;
+}
