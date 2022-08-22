@@ -1,15 +1,18 @@
 // Specific CSS for your home-page
 .banner {
-  background-image: linear-gradient(rgba(155, 155, 155, 0.243), rgba(154, 154, 156, 0.243)), url("https://res.cloudinary.com/dofre6u3x/image/upload/v1661101760/on_mange_ou_quoi/HP_Image_owtzom.gif");
-  height: 100%;
-  width: 100%;
-  object-position: 50% 50%;
-  object-fit: cover;
+  height: 350px;
+  width: auto;
+  // object-position: 50% 50%;
+  // background-size: cover;
+  // object-fit: cover;
+  // flex-direction: column;
+  // align-items: flex-start;
+  background-color: #F6F6ED;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-wrap: wrap;
 
   h1 {
+    flex: 60%;
     text-align: center;
     padding-top: 10%;
     font-size: 70px;
@@ -17,8 +20,10 @@
     text-shadow: 1px 1px 2px #1d2d476f;
   }
 
-  .btn-list {
-    margin-top: 60px;
+  img {
+    flex: 40%;
+    max-height: 100%;
+    max-width: auto;
   }
 }
 
