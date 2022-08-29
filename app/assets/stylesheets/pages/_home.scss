@@ -12,8 +12,10 @@
   flex-wrap: wrap;
 
   h1 {
-    flex: 60%;
+    flex: 50%;
     text-align: center;
+    // align-items: center;
+    // justify-content: center;
     padding-top: 10%;
     font-size: 70px;
     color: black;
@@ -21,9 +23,12 @@
   }
 
   img {
-    flex: 40%;
+    flex: 50%;
     max-height: 100%;
     max-width: auto;
+    // object-fit: cover;
+    object-fit: contain;
+    background-color: #F6F6ED;
   }
 }
 
@@ -32,4 +37,14 @@ h1 {
   font-size: 50px;
   color: #142543;
   text-shadow: 1px 1px 2px #1d2d476f;
+}
+
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+
+  h1,
+  .img {
+    flex: 100%;
+  }
 }
