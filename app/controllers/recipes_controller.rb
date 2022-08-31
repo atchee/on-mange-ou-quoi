@@ -4,6 +4,9 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = policy_scope(Recipe)
+    if params[:query].present?
+      @recipes = @recipes.global_search(params[:query])
+    end
   end
 
   def show
