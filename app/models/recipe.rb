@@ -10,6 +10,15 @@ class Recipe < ApplicationRecord
   has_one_attached :photo
 
   include PgSearch::Model
-  multisearchable against: [:title, :description]
+
+  pg_search_scope :global_search,
+  against: [ :title, :description ],
+  associated_against: {
+    category: :name,
+    # ingredient: :name
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 
 end
