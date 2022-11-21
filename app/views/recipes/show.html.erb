@@ -1,74 +1,95 @@
-<div>
+<div id="admin_rights">
   <%= link_to edit_recipe_path(@recipe) do %>
     <i class="fa-solid fa-pencil"></i>
   <% end %>
-
+  <br>
   <%= link_to recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
     <i class="fa-solid fa-trash"></i>
   <% end %>
 </div>
 
-<div class="recipe">
-  <div class="photos">
-    <% if @recipe.photo.present? %>
-      <%= cl_image_tag @recipe.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      <img src="https://source.unsplash.com/random/350x253/?food" alt="image card">
-    <% end %>
+  <!-- Recipe Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+       <% if @recipe.photo.present? %>
+        <%= cl_image_tag @recipe.photo.key, height: 750, width: 600, crop: :fill %>
+      <% else %>
+        <img src="https://source.unsplash.com/random/350x253/?food" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+      <% end %>
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center w3-padding-48"><span class="w3-tag w3-wide"><%= @recipe.title %></span></h1><br>
+      <p class="w3-large"><%= @recipe.duration %></p>
+      <p class="w3-large"><%= @recipe.serving %> servings</p>
+      <p class="w3-large"><%= @recipe.level.difficulty %></p>
+      <p class="w3-large w3-text-grey w3-hide-medium"><%= @recipe.description %></p>
+    </div>
   </div>
 
-  <div class="infos">
-    <h1><%= @recipe.title %></h1>
+  <hr>
 
-    <ul>
-      <li><i class="fa-solid fa-clock"></i></i> <%= @recipe.duration %></li>
-      <li><i class="fa-solid fa-chart-pie"></i> <%= @recipe.serving %> servings</li>
-      <li><i class="fa-solid fa-face-smile-wink"></i> <%= @recipe.level.difficulty %></li>
-    </ul>
+<!-- Ingredients Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
 
-    <p><%= @recipe.description %></p>
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE GROCERY LIST</span></h5>
+
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">Ingredients</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Ustensils</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <ul>
+        <% @recipe.recipe_ingredients.each do |ingredient| %>
+          <li><h5><%= ingredient.ingredient.name %> <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></h5></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+      <ul>
+        <% @recipe.recipe_ustensils.each do |ustensil| %>
+          <li></i> <%= ustensil.ustensil.name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <br>
   </div>
 </div>
 
-
-<div class="ingredients">
-  <div class="ingredients-photo">
-    <%= image_tag "https://res.cloudinary.com/dofre6u3x/image/upload/v1660492477/on_mange_ou_quoi/des-legumes_lhfadw.png", height: 200, width: 200, crop: :fill %>
-  </div>
-  <div class="ingredients-list">
-    <h2>Ingredients</h2>
-    <ul>
-    <% @recipe.recipe_ingredients.each do |ingredient| %>
-      <li><i class="fa-solid fa-square-check"></i> <%= ingredient.ingredient.name %> - <%= ingredient.measurement.quantity %> <%= ingredient.measurement.unit %></li>
-    <% end %>
-  </ul>
-  </div>
-</div>
-
-<div class="ustensils">
-  <div class="ustensils-list">
-    <h2>Ustensils</h2>
-    <ul>
-    <% @recipe.recipe_ustensils.each do |ustensil| %>
-      <li><i class="fa-solid fa-circle-check"></i> <%= ustensil.ustensil.name %></li>
-    <% end %>
-  </ul>
-  </div>
-  <div class="ustensils-photo">
-    <%= image_tag "https://res.cloudinary.com/dofre6u3x/image/upload/v1660492481/on_mange_ou_quoi/ustensiles-de-cuisine_aibfy1.png", height: 200, width: 200, crop: :fill %>
-  </div>
-</div>
-
-
-<div class="steps">
-  <div class="steps-title">
-    <h2>Recipe steps</h2>
-  </div>
-  <div class="steps-list">
+<!-- Recipe Steps Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">STEPS</span></h5>
     <ol>
     <% @recipe.recipe_steps.each do |step| %>
-      <li><%= step.description %></li>
+      <li><%= step.description %></li><br>
     <% end %>
   </ol>
   </div>
 </div>
+
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>

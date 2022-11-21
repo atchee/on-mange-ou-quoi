@@ -1,3 +1,22 @@
+#admin_rights {
+  display: flex;
+  justify-content: right;
+  .fa-pencil {
+    color: #323232;
+    margin: 5px;
+  }
+
+  .fa-trash {
+    color: #323232;
+    margin: 5px;
+
+  }
+}
+
+.menu {
+  display: none;
+}
+
 .recipe {
   display: flex;
   // flex-direction: row;
@@ -88,7 +107,6 @@
   text-align: center;
 }
 
-.steps-list {}
 
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
